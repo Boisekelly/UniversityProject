@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Courses</title>
+</head>
+<body>
+    <h1>Courses</h1>
+    <div>
+        {% for course in courses %}
+            <h2>{{ course.coursename }}</h2>
+            <h2>{{ course.instructor }}</h2>
+    </div>
+    <a href="{% url 'course_create' %}">Add Another University</a>
+    {% endfor %}
+</body>
+</html>

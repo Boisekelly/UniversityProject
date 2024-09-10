@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedules</title>
+</head>
+<body>
+    <h1>Schedules</h1>
+    <div>
+        {% for schedule in schedules %}
+            <h2>{{ schedule.scheduletime }}</h2>
+            <h2>{{ schedule.classroom }}</h2>           
+    </div>
+    <a href="{% url 'schedule_create' %}">Add Another Schedule</a>
+    {% endfor %}
+</body>
+</html>

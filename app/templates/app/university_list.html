@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Universities</title>
+</head>
+<body>
+    <h1>Universities</h1>
+    <div>
+        {% for university in universities %}
+            <h2>{{ university.univname }}</h2>
+    </div>
+    <a href="{% url 'university_create' %}">Add Another University</a>
+    {% endfor %}
+</body>
+</html>

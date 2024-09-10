@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instructors</title>
+</head>
+<body>
+    <h1>Instructors</h1>
+    <div>
+        {% for instructor in instructors %}
+            <h2>{{ instructor.instructorname }}</h2>
+            <h2>{{ instructor.department }}</h2>
+    </div>
+    <a href="{% url 'instructor_create' %}">Add Another Instructor</a>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrollments</title>
+</head>
+<body>
+    <h1>Enrollments</h1>
+    <div>
+        {% for enrollment in enrollmentss %}
+            <h2>{{ enrollment.enrollmentdate }}</h2>
+    </div>
+    <a href="{% url 'enrollment_create' %}">Add Another University</a>
+    {% endfor %}
+</body>
+</html>
