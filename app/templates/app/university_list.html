@@ -4,12 +4,19 @@
     <title>Universities</title>
 </head>
 <body>
+    {% extends "./base.html" %}
+    {% block content %}
     <h1>Universities</h1>
     <div>
         {% for university in universities %}
             <h2>{{ university.univname }}</h2>
-    </div>
-    <a href="{% url 'university_create' %}">Add Another University</a>
-    {% endfor %}
+
+    <a href="{% url 'university_form' university.id %}">Update University</a>
+    <br>
+    <a href="{% url 'university_delete' university.id %}">Delete University</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

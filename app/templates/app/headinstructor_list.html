@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Head Instructors</title>
+    <title>Instructors</title>
 </head>
 <body>
-    <h1>Head Instructors</h1>
+    {% extends "./base.html" %}
+    {% block content %}
+    <h1>Head Instructor</h1>
     <div>
         {% for headinstructor in headinstructors %}
-            <h2>{{ headinstructory.headinstructorname }}</h2>
-    </div>
-    <a href="{% url 'headinstructor_create' %}">Add Another Head Instructor</a>
-    {% endfor %}
+            <h2>{{ headinstructor.headinstructorname }}</h2>
+
+    <a href="{% url 'headinstructor_form' headinstructor.id %}">Update Head Instructor</a>
+    <br>
+    <a href="{% url 'headinstructor_delete' headinstructor.id %}">Delete Head Instructor</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

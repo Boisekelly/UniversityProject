@@ -4,12 +4,19 @@
     <title>Enrollments</title>
 </head>
 <body>
-    <h1>Enrollments</h1>
+    {% extends "./base.html" %}
+    {% block content %}
+    <h1>Enrollment</h1>
     <div>
-        {% for enrollment in enrollmentss %}
+        {% for enrollment in enrollments %}
             <h2>{{ enrollment.enrollmentdate }}</h2>
-    </div>
-    <a href="{% url 'enrollment_create' %}">Add Another University</a>
-    {% endfor %}
+
+    <a href="{% url 'enrollment_form' enrollment.id %}">Update Enrollment</a>
+    <br>
+    <a href="{% url 'enrollment_delete' enrollment.id %}">Delete Enrollment</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

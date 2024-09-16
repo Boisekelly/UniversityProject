@@ -4,13 +4,19 @@
     <title>Schedules</title>
 </head>
 <body>
-    <h1>Schedules</h1>
+    {% extends "./base.html" %}
+    {% block content %}
+    <h1>Schedule</h1>
     <div>
         {% for schedule in schedules %}
             <h2>{{ schedule.scheduletime }}</h2>
-            <h2>{{ schedule.classroom }}</h2>           
-    </div>
-    <a href="{% url 'schedule_create' %}">Add Another Schedule</a>
-    {% endfor %}
+
+    <a href="{% url 'schedule_form' schedule.id %}">Update Schedule</a>
+    <br>
+    <a href="{% url 'schedule_delete' schedule.id %}">Delete Schedule</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

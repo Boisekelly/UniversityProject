@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ view.title }}</title>
-</head>
-<body>
-    <h1>{{ view.title }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
-    <a href="{% url 'university_list' %}">Return To University List</a>
-</body>
-</html>
+{% extends './base.html' %}
+{% block content %}
+<h1>Update University</h1>
+<form method="post">
+    <div>
+      {% csrf_token %} {{ form.as_p}}
+      <input type="submit" value="submit" />
+    </div>
+</form>
+{% endblock %}

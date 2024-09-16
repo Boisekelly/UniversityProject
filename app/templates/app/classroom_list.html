@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Classroom</title>
+    <title>Classrooms</title>
 </head>
 <body>
+    {% extends "./base.html" %}
+    {% block content %}
     <h1>Classroom</h1>
     <div>
         {% for classroom in classrooms %}
             <h2>{{ classroom.classroomnumber }}</h2>
-    </div>
-    <a href="{% url 'classroom_create' %}">Add Another Classroom</a>
-    {% endfor %}
+
+    <a href="{% url 'classroom_form' classroom.id %}">Update Classroom</a>
+    <br>
+    <a href="{% url 'classroom_delete' classroom.id %}">Delete Classroom</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

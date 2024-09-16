@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Students</title>
+    <title>Universities</title>
 </head>
 <body>
+    {% extends "./base.html" %}
+    {% block content %}
     <h1>Students</h1>
     <div>
         {% for student in students %}
             <h2>{{ student.studentname }}</h2>
-            <h2>{{ student.course }}</h2>
-    </div>
-    <a href="{% url 'university_create' %}">Add Another Student</a>
-    {% endfor %}
+
+    <a href="{% url 'student_form' student.id %}">Update Student</a>
+    <br>
+    <a href="{% url 'student_delete' student.id %}">Delete Student</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

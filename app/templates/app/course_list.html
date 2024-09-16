@@ -4,13 +4,19 @@
     <title>Courses</title>
 </head>
 <body>
-    <h1>Courses</h1>
+    {% extends "./base.html" %}
+    {% block content %}
+    <h1>Course</h1>
     <div>
         {% for course in courses %}
             <h2>{{ course.coursename }}</h2>
-            <h2>{{ course.instructor }}</h2>
-    </div>
-    <a href="{% url 'course_create' %}">Add Another University</a>
-    {% endfor %}
+
+    <a href="{% url 'course_form' course.id %}">Update Course</a>
+    <br>
+    <a href="{% url 'course_delete' course.id %}">Delete Course</a>
+</div>
+       {% endfor %}
+    {% endblock %}
+
 </body>
 </html>

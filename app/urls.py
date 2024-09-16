@@ -1,61 +1,62 @@
 from django.urls import path
+from . import views
 from .views import (
-    UniversityListView, UniversityDetailView, UniversityCreateView, UniversityUpdateView,
-    DepartmentListView, DepartmentDetailView, DepartmentCreateView, DepartmentUpdateView,
-    HeadinstructorListView, HeadinstructorDetailView, HeadinstructorCreateView, HeadinstructorUpdateView,
-    InstructorListView, InstructorDetailView, InstructorCreateView, InstructorUpdateView,
-    ClassroomListView, ClassroomDetailView, ClassroomCreateView, ClassroomUpdateView,
-    CourseListView, CourseDetailView, CourseCreateView, CourseUpdateView,
-    StudentListView, StudentDetailView, StudentCreateView, StudentUpdateView,
-    ScheduleListView, ScheduleDetailView, ScheduleCreateView, ScheduleUpdateView,
-    EnrollmentListView, EnrollmentDetailView, EnrollmentCreateView, EnrollmentUpdateView
+    UniversityListView, UniversityDeleteView, UniversityUpdateView,
+    DepartmentListView, DepartmentDeleteView, DepartmentUpdateView,
+    HeadinstructorListView, HeadinstructorDeleteView, HeadinstructorUpdateView,
+    InstructorListView, InstructorDeleteView, InstructorUpdateView,
+    ClassroomListView, ClassroomDeleteView, ClassroomUpdateView,
+    CourseListView, CourseDeleteView, CourseUpdateView,
+    StudentListView, StudentDeleteView, StudentUpdateView,
+    ScheduleListView, ScheduleDeleteView, ScheduleUpdateView,
+    EnrollmentListView, EnrollmentDeleteView, EnrollmentUpdateView,
 )
 
 urlpatterns = [
-    path('universities/', UniversityListView.as_view(), name='university_list'),
-    path('universities/<int:pk>/', UniversityDetailView.as_view(), name='university_detail'),
-    path('universities/create/', UniversityCreateView.as_view(), name='university_create'),
-    path('universities/<int:pk>/edit/', UniversityUpdateView.as_view(), name='university_update'),
+    #URL Paths For The University Field
+    path('university_list/', UniversityListView.as_view(), name='university_list'),
+    path('university_delete/<pk>', UniversityDeleteView.as_view(), name='university_delete'),
+    path('university_form/<pk>', UniversityUpdateView.as_view(), name='university_form'),
+    
+    #URL Paths For The Department Field
+    path('department_list', DepartmentListView.as_view(), name='department_list'),
+    path('department_delete/<pk>', DepartmentDeleteView.as_view(), name='department_delete'),
+    path('department__form/<pk>', DepartmentUpdateView.as_view(), name='department_form'),
 
-    path('departments/', DepartmentListView.as_view(), name='department_list'),
-    path('departments/<int:pk>/', DepartmentDetailView.as_view(), name='department_detail'),
-    path('departments/create/', DepartmentCreateView.as_view(), name='department_create'),
-    path('departments/<int:pk>/edit/', DepartmentUpdateView.as_view(), name='department_update'),
+    #URL Paths For The Headinstructor Field
+    path('headinstructor_list', HeadinstructorListView.as_view(), name='headinstructor_list'),
+    path('headinstructor_delete/<pk>', HeadinstructorDeleteView.as_view(), name='headinstructor_delete'),
+    path('headinstructors_form/<pk>', HeadinstructorUpdateView.as_view(), name='headinstructor_form'),
 
-    path('headinstructors/', HeadinstructorListView.as_view(), name='instructor_list'),
-    path('headinstructors/<int:pk>/', HeadinstructorDetailView.as_view(), name='instructor_detail'),
-    path('headinstructors/create/', HeadinstructorCreateView.as_view(), name='instructor_create'),
-    path('headinstructors/<int:pk>/edit/', HeadinstructorUpdateView.as_view(), name='instructor_update'),
+    #URL Paths For Instructor Field
+    path('instructor_list', InstructorListView.as_view(), name='instructor_list'),
+    path('instructor_delete/<pk>', InstructorDeleteView.as_view(), name='instructor_delete'),
+    path('instructor_form/<pk>', InstructorUpdateView.as_view(), name='instructor_form'),
 
-    path('instructors/', InstructorListView.as_view(), name='instructor_list'),
-    path('instructors/<int:pk>/', InstructorDetailView.as_view(), name='instructor_detail'),
-    path('instructors/create/', InstructorCreateView.as_view(), name='instructor_create'),
-    path('instructors/<int:pk>/edit/', InstructorUpdateView.as_view(), name='instructor_update'),
+    #URL Paths For The Classroom Field
+    path('classroom_list', ClassroomListView.as_view(), name='classroom_list'),
+    path('classroom_delete/<pk>', ClassroomDeleteView.as_view(), name='classroom_delete'),
+    path('classroom_form/<pk>', ClassroomUpdateView.as_view(), name='classroom_form'),
 
-    path('classrooms/', ClassroomListView.as_view(), name='classroom_list'),
-    path('classrooms/<int:pk>/', ClassroomDetailView.as_view(), name='classroom_detail'),
-    path('classrooms/create/', ClassroomCreateView.as_view(), name='classroom_create'),
-    path('classrooms/<int:pk>/edit/', ClassroomUpdateView.as_view(), name='classroom_update'),
+    #URL Paths For The Course Field
+    path('course_list', CourseListView.as_view(), name='course_list'),
+    path('course_delete/<pk>', CourseDeleteView.as_view(), name='course_delete'),
+    path('course_form/<pk>', CourseUpdateView.as_view(), name='course_form'),
 
-    path('courses/', CourseListView.as_view(), name='course_list'),
-    path('courses/<int:pk>/', CourseDetailView.as_view(), name='course_detail'),
-    path('courses/create/', CourseCreateView.as_view(), name='course_create'),
-    path('courses/<int:pk>/edit/', CourseUpdateView.as_view(), name='course_update'),
+    #URL Paths For The Student Field
+    path('student_list', StudentListView.as_view(), name='student_list'),
+    path('student_delete/<pk>', StudentDeleteView.as_view(), name='student_delete'),
+    path('student_form/<pk>', StudentUpdateView.as_view(), name='student_form'),
 
-    path('students/', StudentListView.as_view(), name='student_list'),
-    path('students/<int:pk>/', StudentDetailView.as_view(), name='student_detail'),
-    path('students/create/', StudentCreateView.as_view(), name='student_create'),
-    path('students/<int:pk>/edit/', StudentUpdateView.as_view(), name='student_update'),
+    #URL Paths For The Schedule Field
+    path('schedule_list', ScheduleListView.as_view(), name='schedule_list'),
+    path('schedule_delete/<pk>', ScheduleDeleteView.as_view(), name='schedule_delete'),
+    path('schedule_form/<pk>', ScheduleUpdateView.as_view(), name='schedule_form'),
 
-    path('schedules/', ScheduleListView.as_view(), name='schedule_list'),
-    path('schedules/<int:pk>/', ScheduleDetailView.as_view(), name='schedule_detail'),
-    path('schedules/create/', ScheduleCreateView.as_view(), name='schedule_create'),
-    path('schedules/<int:pk>/edit/', ScheduleUpdateView.as_view(), name='schedule_update'),
-
-    path('enrollments/', EnrollmentListView.as_view(), name='enrollment_list'),
-    path('enrollments/<int:pk>/', EnrollmentDetailView.as_view(), name='enrollment_detail'),
-    path('enrollments/create/', EnrollmentCreateView.as_view(), name='enrollment_create'),
-    path('enrollments/<int:pk>/edit/', EnrollmentUpdateView.as_view(), name='enrollment_update'),
+    #URL Paths For The Enrollment Field
+    path('enrollment_list', EnrollmentListView.as_view(), name='enrollment_list'),
+    path('enrollment_delete/<pk>', EnrollmentDeleteView.as_view(), name='enrollment_delete'),
+    path('enrollment_form/<pk>', EnrollmentUpdateView.as_view(), name='enrollment_form'),
 ]
 
 
