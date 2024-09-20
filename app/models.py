@@ -1,6 +1,8 @@
 from django.db import models
 from django.db.models import Count
 
+
+
 #This Is The University Model
 class University(models.Model):
     univname = models.TextField(max_length=75)

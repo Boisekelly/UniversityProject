@@ -13,6 +13,7 @@ from .views import (
 )
 
 urlpatterns = [
+
     #URL Paths For The University Field
     path('university_list/', UniversityListView.as_view(), name='university_list'),
     path('university_delete/<pk>', UniversityDeleteView.as_view(), name='university_delete'),
